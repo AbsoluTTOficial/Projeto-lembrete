@@ -5,7 +5,7 @@ import { LembreteListaComponent } from './lembrete/lembrete-lista/lembrete-lista
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 
 const routes: Routes = [
-  {path: '', component: LembreteListaComponent},
+  {path: 'lista', component: LembreteListaComponent},
   {path: 'criar', component: LembreteInserirComponent},
   {path: 'editar/:idLembrete', component: LembreteInserirComponent}
 ];

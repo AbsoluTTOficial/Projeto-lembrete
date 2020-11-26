@@ -1,6 +1,6 @@
-<h2>Gerenciador de lembretes</h2>
+<h2 class="lembrete-text">Gerenciador de lembretes</h2>
 
-<mat-card>
+<mat-card class="box">
   <mat-spinner *ngIf="estaCarregando"></mat-spinner>
   <form (submit)="onSalvarLembrete(lembreteForm)" *ngIf="!estaCarregando" #lembreteForm="ngForm">
   <mat-form-field>
@@ -21,6 +21,6 @@
     <mat-error *ngIf="atividade.invalid">Digite um nome válido</mat-error>
   </mat-form-field>
 
-  <button color="accent" mat-raised-button>Salvar Lembrete</button>
+  <button color="primary" mat-raised-button>Salvar Lembrete</button>
 </form>
 </mat-card>

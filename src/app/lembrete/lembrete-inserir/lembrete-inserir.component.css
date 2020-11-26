@@ -6,3 +6,21 @@ input {
 mat-spinner {
   margin: auto;
 }
+
+.lembrete-text {
+  color: white;
+  text-transform: uppercase;
+  font-weight: 500;
+  width: 300;
+  padding: 10px;
+  text-align: center;
+}
+.box{
+  width: 300;
+  padding: 40px;
+  position: absolute;
+  top: 33%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
