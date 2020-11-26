@@ -41,7 +41,7 @@ export class LembreteService {
     return this.listaLembretesAtualizada.asObservable();
   }
 
-  adicionarLembrete(dataCadastro: string, dataEntrega: string, atividade: string) {
+  adicionarLembrete(dataCadastro: string, dataEntrega: string, atividade: string): void {
     const lembrete: Lembrete = {
       id: null,
       dataCadastro: dataCadastro,
@@ -54,7 +54,7 @@ export class LembreteService {
         lembrete.id = dados.id;
         this.lembretes.push(lembrete);
         this.listaLembretesAtualizada.next([...this.lembretes]);
-        this.router.navigate(['/']);
+        this.router.navigate(['/lista']);
       }
     )
   }
@@ -67,7 +67,6 @@ export class LembreteService {
       this.listaLembretesAtualizada.next([...this.lembretes]);
     });
   }
-
   atualizarLembrete(id: string, dataCadastro: string, dataEntrega: string, atividade: string) {
     const lembrete: Lembrete = {id, dataCadastro, dataEntrega, atividade};
     this.HttpClient.put(`http://localhost:3000/api/lembretes/${id}`, lembrete)
@@ -77,13 +76,13 @@ export class LembreteService {
       copia[indice] = lembrete;
       this.lembretes = copia;
       this.listaLembretesAtualizada.next([...this.lembretes]);
-      this.router.navigate(['/'])
+      this.router.navigate(['/lista']);
     }));
   }
 
   getLembrete(idLembrete: string) {
     //return {...this.lembretes.find((lem) => lem.id === idLembrete)};
     return this.HttpClient.get<{_id: string, dataCadastro: string, dataEntrega: string, atividade: string}>
-    ('http://localhost:3000/api/lembretes/${idLembrete}');
+    (`http://localhost:3000/api/lembretes/${idLembrete}`);
   }
 }

@@ -17,7 +17,6 @@ export class LembreteListaComponent implements OnInit, OnDestroy {
   constructor(public lembreteService: LembreteService) { }
 
   ngOnInit(): void {
-    this.estaCarregando = true;
     this.lembreteService.getLembretes();
     this.lembretesSubscription = this.lembreteService
     .getListaDeLembretesAtualizadaObservable()

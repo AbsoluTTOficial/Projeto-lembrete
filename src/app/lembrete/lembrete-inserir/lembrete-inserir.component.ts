@@ -24,9 +24,7 @@ export class LembreteInserirComponent implements OnInit{
       if (paramMap.has("idLembrete")) {
         this.modo = "editar";
         this.idLembrete = paramMap.get("idLembrete");
-        this.estaCarregando = true;
         this.lembreteService.getLembrete(this.idLembrete).subscribe(dadosLem => {
-          this.estaCarregando = false;
           this.lembrete = {
             id: dadosLem._id,
             dataCadastro: dadosLem.dataCadastro,
